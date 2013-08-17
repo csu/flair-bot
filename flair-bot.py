@@ -25,7 +25,7 @@ def setFlair(sub, message_body):
     global r
     message_data = parseMessage(message_body)
     for task in message_data:
-        r.set_flair(sub, task[0], flair_css_class=AccountDetails.FLAIR_DICT[task[1]])
+        r.set_flair(sub, task[0], flair_css_class=AccountDetails.FLAIR_DICT[task[1]]) # realize could use set_flair_csv, but would then have to make a list of dictionaries
 
 def main():
     global r
@@ -36,7 +36,7 @@ def main():
 
     for msg in r.get_unread(limit=None):
         if msg.author in mods:
-            if msg.subject == AccountDetails.ADD_COMMAND_1 or AccountDetails.ADD_COMMAND_2:
+            if msg.subject == AccountDetails.ADD_COMMAND_1 or msg.subject == AccountDetails.ADD_COMMAND_2:
                 setFlair(sub, msg.body)
             elif msg.subject == AccountDetails.REMOVE_COMMAND:
                 removeFlair(sub, msg.body)
