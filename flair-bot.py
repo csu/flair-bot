@@ -27,6 +27,12 @@ def setFlair(sub, message_body):
     for task in message_data:
         r.set_flair(sub, task[0], flair_css_class=AccountDetails.FLAIR_DICT[task[1]]) # realize could use set_flair_csv, but would then have to make a list of dictionaries
 
+def removeFlair(sub, message_body):
+    global r
+    message_data = parseMessage(message_body)
+    for task in message_data:
+        r.delete_flair(sub, task[0])
+
 def main():
     global r
     r = praw.Reddit(user_agent='KCABot 1.0')
