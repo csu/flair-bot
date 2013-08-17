@@ -1,0 +1,15 @@
+# Configuration
+SUBREDDIT = ""
+ADD_COMMAND_1 = "setflair"
+ADD_COMMAND_2 = "addflair"
+REMOVE_COMMAND = "removeflair"
+
+# Login
+REDDIT_USERNAME = ""
+REDDIT_PASSWORD = ""
+
+# Flair Dictionary
+FLAIR_DICT = { "flair-name": "css-class",
+"flair-name2": "css-class2",
+"flair-name3": "css-class3"
+}
