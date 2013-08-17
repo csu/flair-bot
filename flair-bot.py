@@ -39,7 +39,7 @@ def removeFlair(sub, message_body):
 def main():
     global r
     handler = MultiprocessHandler()
-    r = praw.Reddit(user_agent='Subot 1.0', handler=handler)
+    r = praw.Reddit(user_agent=AccountDetails.USERAGENT, handler=handler)
     r.login(AccountDetails.REDDIT_USERNAME, AccountDetails.REDDIT_PASSWORD)
     sub = AccountDetails.SUBREDDIT
     mods = r.get_moderators(sub)
