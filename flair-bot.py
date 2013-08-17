@@ -6,6 +6,8 @@ Receives commands via Reddit private message and applies flair accordingly.
 '''
 
 import praw
+import logging
+import os
 import AccountDetails
 
 # global
@@ -35,7 +37,7 @@ def removeFlair(sub, message_body):
 
 def main():
     global r
-    r = praw.Reddit(user_agent='KCABot 1.0')
+    r = praw.Reddit(user_agent='Subot 1.0')
     r.login(AccountDetails.REDDIT_USERNAME, AccountDetails.REDDIT_PASSWORD)
     sub = AccountDetails.SUBREDDIT
     mods = r.get_moderators(sub)
@@ -49,4 +51,7 @@ def main():
         msg.mark_as_read()
 
 if __name__ == "__main__":
+    dir = os.path.dirname(__file__)
+    LOG_FILENAME = os.path.join(dir, 'flair-bot.log')
+    logging.basicConfig(filename=LOG_FILENAME,level=logging.INFO
     main()
