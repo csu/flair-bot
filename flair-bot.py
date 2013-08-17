@@ -46,6 +46,7 @@ def main():
                 setFlair(sub, msg.body)
             elif msg.subject == AccountDetails.REMOVE_COMMAND:
                 removeFlair(sub, msg.body)
+        msg.mark_as_read()
 
 if __name__ == "__main__":
     main()
